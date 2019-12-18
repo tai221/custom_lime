@@ -25,7 +25,7 @@ if (!defined('BASEPATH')) {
 *
 * @package        LimeSurvey
 * @subpackage    Backend
-* 
+*
 * @method void redirect(string|array $url, boolean $terminate, integer $statusCode)
  */
 class Authentication extends Survey_Common_Action
@@ -261,7 +261,7 @@ class Authentication extends Survey_Common_Action
     /**
      * Send the forgot password email
      *
-     * @param CActiveRecord User 
+     * @param CActiveRecord User
      */
     private function _sendPasswordEmail( $arUser)
     {

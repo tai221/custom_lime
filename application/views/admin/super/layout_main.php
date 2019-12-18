@@ -16,7 +16,7 @@ $this->_showHeaders($aData);
 
     $this->_updatenotification();
     $this->_notifications();
-    
+
     //The load indicator for pjax
     echo ' <div id="pjax-file-load-container" class="ls-flex-row col-12"><div style="height:2px;width:0px;"></div></div>';
 
@@ -28,7 +28,7 @@ $this->_showHeaders($aData);
 
     echo '</div>';
     echo "<!-- END LAYOUT_MAIN -->";
-    
+
     // Footer
     if (!isset($aData['display']['endscripts']) || $aData['display']['endscripts'] !== false) {
         Yii::app()->getController()->_loadEndScripts();

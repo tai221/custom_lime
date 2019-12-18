@@ -506,7 +506,7 @@ $config['force_ssl'] = 'off'; // DO not turn on unless you are sure your server 
 * This should always be false except in emergencies where you change
 * it to true until you fix the problem.
 */
-$config['ssl_emergency_override'] = false;
+$config['ssl_emergency_override'] = true;
 
 /**
 * @var $ssl_disable_alert boolean disable alert for super admin
@@ -568,7 +568,7 @@ $config['uniq_upload_dir'] = false; // Use a single KCFinder upload directory fo
 $config['magic_database'] = null;
 
 /**
- * Allow to use a different magic file array 
+ * Allow to use a different magic file array
  * @see https://www.yiiframework.com/doc/api/1.1/CFileHelper#getExtensionByMimeType-detail
  * This file must return a PHP array of extension by mimeTypes
  * Example : https://github.com/LimeSurvey/LimeSurvey/blob/master/framework/utils/fileExtensions.php

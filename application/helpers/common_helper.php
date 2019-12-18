@@ -347,7 +347,7 @@ function convertGETtoPOST($url)
             function ($v, $k) {
                 return $k.'='.$v;
             },
-            $getArray, 
+            $getArray,
             array_keys($getArray)
         ));
     }
@@ -2342,7 +2342,7 @@ function SendEmailMessage($body, $subject, $to, $from, $sitename, $ishtml = fals
         ob_end_clean();
     }
     $maildebugbody = $mail->Body;
-    //if(!$sent) var_dump($maildebug);
+    if(!$sent) var_dump($maildebug);
     return $sent;
 }
 
@@ -3287,13 +3287,13 @@ function SSLRedirect($enforceSSLMode)
 */
 function enforceSSLMode()
 {
-    $bForceSSL = ''; // off 
+    $bForceSSL = ''; // off
     $bSSLActive = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != "off") ||
     (isset($_SERVER['HTTP_FORWARDED_PROTO']) && $_SERVER['HTTP_FORWARDED_PROTO'] == "https") ||
     (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == "https"));
     if (Yii::app()->getConfig('ssl_emergency_override') !== true) {
         $bForceSSL = strtolower(getGlobalSetting('force_ssl'));
-    } 
+    }
     if ($bForceSSL == 'on' && !$bSSLActive) {
         SSLRedirect('s');
     }
@@ -5080,7 +5080,7 @@ function get_zip_originalsize($filename) {
 /**
  * PHP7 has created a little nasty bomb with count throwing erroros on uncountables
  * This is to "fix" this problem
- * 
+ *
  * @param mixed $element
  * @return integer counted element
  * @author
