@@ -57,9 +57,6 @@
     <div class="collapse navbar-collapse js-navbar-collapse pull-right">
         <ul class="nav navbar-nav navbar-right">
 
-            <!-- Tutorial menu -->
-            <?php $this->renderPartial( "/admin/super/_tutorial_menu", []); ?>
-            
             <!-- Configuration menu -->
             <?php $this->renderPartial( "/admin/super/_configuration_menu", $dataForConfigMenu ); ?>
 
@@ -115,6 +112,20 @@
                 <li>
                     <a href="<?php echo $this->createUrl('admin/survey/sa/listsurveys/active/Y');?>">
                         <?php eT("Active surveys");?> <span class="badge badge-success"> <?php echo $activesurveyscount ?> </span>
+                    </a>
+                </li>
+            <?php endif;?>
+
+            <!-- Central participant database -->
+            <?php if (Permission::model()->hasGlobalPermission('participantpanel', 'read')
+                || Permission::model()->hasGlobalPermission('participantpanel', 'create')
+                || Permission::model()->hasGlobalPermission('participantpanel', 'update')
+                || Permission::model()->hasGlobalPermission('participantpanel', 'delete')
+                || ParticipantShare::model()->exists('share_uid = :userid', [':userid' => App()->user->id])
+            ): ?>
+                <li class="dropdown-item">
+                    <a href="<?php echo $this->createUrl("admin/participants/sa/displayParticipants"); ?>">
+                        <?php eT("Central participant database"); ?>
                     </a>
                 </li>
             <?php endif;?>

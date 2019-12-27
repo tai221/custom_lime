@@ -324,7 +324,7 @@ class Survey_Common_Action extends CAction
         $aData = $this->_addPseudoParams($aData); // This call 2 times _addPseudoParams because it's already done in runWithParams : why ?
 
         $basePath = (string) Yii::getPathOfAlias('application.views.admin.super');
-        
+
         if ($sRenderFile == false) {
             if (!empty($aData['surveyid'])) {
 
@@ -450,7 +450,7 @@ class Survey_Common_Action extends CAction
                     'message' => '<span class="fa fa-exclamation-circle text-warning"></span>&nbsp;'.
                         gT("Warning: Please enforce SSL encrpytion in Global settings/Security after SSL is properly configured for your webserver.")
                 ));
-                $not->save();                
+                $not->save();
             }
 
             // Count active survey
@@ -461,13 +461,6 @@ class Survey_Common_Action extends CAction
 
             // Count user
             $aData['dataForConfigMenu']['userscount'] = User::model()->count();
-
-            //Check if have a comfortUpdate key
-            if (getGlobalSetting('emailsmtpdebug') != '') {
-                $aData['dataForConfigMenu']['comfortUpdateKey'] = gT('Activated');
-            } else {
-                $aData['dataForConfigMenu']['comfortUpdateKey'] = gT('None');
-            }
 
             $aData['sitename'] = Yii::app()->getConfig("sitename");
 
@@ -1209,8 +1202,8 @@ class Survey_Common_Action extends CAction
             $aErrorFilesInfo[] = array(
                 "filename" => '',
                 "status" => gT("Extracted files not found - maybe a permission problem?")
-            );    
-            return array($aImportedFilesInfo, $aErrorFilesInfo);                        
+            );
+            return array($aImportedFilesInfo, $aErrorFilesInfo);
         }
         while ($direntry = readdir($dh)) {
             if ($direntry != "." && $direntry != "..") {
